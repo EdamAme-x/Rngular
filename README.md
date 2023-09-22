@@ -40,3 +40,8 @@ WIP.
 <script src="https://raw.githubusercontent.com/EdamAme-x/Rngular/main/dist/Rngular.min.js">
 </script>
 ```
+
+### Development
+`npm run dev` で src/Rngular.jsを自動的にファイル変更を監視し、minify
+
+main.jsはindex.htmlで読み込んでいるファイル
