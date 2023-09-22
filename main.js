@@ -1,7 +1,4 @@
 class App extends Rangular.component {
-    constructor() {
-        super()
-    }
 
     html = `
     <div>
