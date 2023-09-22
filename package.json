@@ -1,8 +1,8 @@
 {
-  "name": "rangular",
+  "name": "Rngular",
   "version": "1.0.0",
   "description": "",
-  "main": "rangular.js",
+  "main": "Rngular.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

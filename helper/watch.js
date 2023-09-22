@@ -15,17 +15,17 @@ watcher.on('ready', function () {
     console.log("ready watching...");
 
     watcher.on('change', function (path) {
-        exec('minify ./src/Rangular.js', (err, stdout, stderr) => {
+        exec('minify ./src/Rngular.js', (err, stdout, stderr) => {
             if (err) {
-              console.log(`stderr: ${stderr}`)
-              return
+                console.log(`stderr: ${stderr}`)
+                return
             }
-        const minifyCode = stdout;
+            const minifyCode = stdout;
 
-        fs.writeFile('./dist/Rangular.min.js', minifyCode, function() {
-            console.log("minify passed")
-        })
-        
+            fs.writeFile('./dist/Rngular.min.js', minifyCode, function () {
+                console.log("minify passed")
+            })
+
         }
         )
     });

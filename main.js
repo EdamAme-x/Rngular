@@ -1,14 +1,14 @@
-class App extends Rangular.component {
+class App extends Rngular.component {
 
     html = `
     <div>
-        <p> Hello World </p>
+        <h1> Welcome to Rngular! 🔥 </h1>
         <button onclick="$this_click()" id="inc">0</button>
     </div>
     `
 
     style = `
-    $this p {
+    $this h1 {
         color: red;
     }
     `

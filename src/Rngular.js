@@ -1,4 +1,4 @@
-globalThis.Rangular = {
+globalThis.Rngular = {
     component: class {
         constructor() {
             this.uuid = this._createUuid();
@@ -48,7 +48,7 @@ globalThis.Rangular = {
 }
 
 document.head.innerHTML += `
-<style rangularStyle>
+<style RngularStyle>
 [rg-element] {
     display: contents;
 }
