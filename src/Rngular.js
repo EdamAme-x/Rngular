@@ -30,9 +30,6 @@ globalThis.Rngular = {
         <style id="${this.uuid}_style">
             ${this._encode(this.style)}
         </style>
-        <script id="${this.uuid}_script">
-            ${this._encode(this.script)}
-        </script>
     </${this.uuid}>`;
                 let scriptElement = document.createElement("script");
                 scriptElement.innerHTML = this._encode(this.script);
