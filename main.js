@@ -3,25 +3,36 @@ class App extends Rngular.component {
     html = `
     <div>
         <h1> Welcome to Rngular! 🔥 </h1>
-        <button onclick="$this_click()" id="inc">0</button>
+        <div id="counter"></div>
     </div>
     `
 
     style = `
     $this h1 {
-        color: red;
+        text-align: center;
     }
     `
 
-    script = `
-    function $this_click() {
-        const dom = document.querySelector("$this #inc");
-        dom.innerHTML = parseInt(dom.innerHTML) + 1;
-        console.log("add!")
-    }
-    `
-
+    script = `console.log("Hello world!")`
 }
 
 const app = new App();
 app.mount("#app");
+
+class Counter extends Rngular.component {
+
+    html = `
+    <button id="$this_click(-1)">-</button>
+    <div id="$this_num"></div>
+    <button id="$this_click(1)">+</button>
+    `
+
+    script = `
+    function $this_click(num) {
+        const dom = document.getElementById("$this_num");
+        dom.innerHTML = parseInt(dom.innerHTML) + num;
+    }
+    `
+
+    args = ["count"]
+}

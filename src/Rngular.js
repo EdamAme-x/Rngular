@@ -1,7 +1,6 @@
 globalThis.Rngular = {
     component: class {
         constructor() {
-            this.uuid = this._createUuid();
         }
 
         html = ``;
@@ -10,7 +9,7 @@ globalThis.Rngular = {
 
         script = ``;
 
-        args = [];
+        args = 0;
 
         _createUuid() {
             return 'rg_xxxxxxxx_xxxxx'.replace(/x/g, function (a) {
@@ -20,10 +19,11 @@ globalThis.Rngular = {
         }
 
         mount(selector) {
+            this.uuid = this._createUuid();
             this._document = document.querySelectorAll(selector);
 
             for (let i = 0; i < this._document.length; i++) {
-                const ArgGetter = this._document[i].getattribute;
+
                 this._document[i].innerHTML = `
     <${this.uuid} id="${this.uuid}_html" class="${this.uuid}" rg-element>
         ${this._encode(this.html)}
