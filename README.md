@@ -2,6 +2,20 @@
 
 Rngular(Rungyurā)
 
+#### Size
+
+| Name | Size |
+| ---- | ---- |
+| Rngular | 1 KB|
+| React (+RDOM) | 130 KB | 
+| Vue.js | 65 KB |
+| PReact | 13 KB |
+| jQuery | 87 KB |
+
+RngularはjQeuryやVue.js, Reactとの併用も可能です。
+また 通常のサーバーで動きます。
+そして moduleモードを使えばコンポーネントごとの分割や、 再利用も出来ます。
+
 ## About
 双方データバインディング
 CSS, JS をスコープ
@@ -34,6 +48,7 @@ Rngular.getChildId(ここにDOM要素) で要素のUUIDも取得可能
 ## Document
 
 WIP.
+今は個人的に連絡お願いします。 (Issue等でも可)
 
 ## CDN
 ```html
