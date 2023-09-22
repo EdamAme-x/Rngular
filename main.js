@@ -1,8 +1,12 @@
 class App extends Rngular.component {
 
+    title = () => {
+        return "Rngular";
+    }
+
     html = `
     <div>
-        <h1> Welcome to Rngular! 🔥 </h1>
+        <h1> Welcome to ${this.title()}! 🔥 </h1>
         <div id="counter"></div>
         <a href="https://github.com/EdamAme-x/Rangular">GitHub</a>
     </div>

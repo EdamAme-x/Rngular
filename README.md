@@ -20,7 +20,7 @@ RngularはjQeuryやVue.js, Reactとの併用も可能です。
 双方データバインディング
 CSS, JS をスコープ
 class型のコンポーネントなのでインスタンス生成時に
-constructor でデータ取得も可能。
+constructor でデータ取得も可能。 (this.html経由で定義)
 
 
 ### 簡単な説明
