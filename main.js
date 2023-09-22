@@ -9,16 +9,25 @@ class App extends Rngular.component {
     `
 
     style = `
-    $this h1 {
+    $this {
         text-align: center;
+    }
+
+    $this a {
+        color: #000;
+        font-weight: bold;
     }
     `
 
-    script = `console.log("Hello world!")`
+    script = `
+    setTimeout(() => {
+        console.log("CHILD-ID: " + Rngular.getChildId(document.getElementById('counter')))
+    }, 1000); // After render children component.
+    `
 }
 
 const app = new App();
-app.mount("#app");
+app.mount(document.getElementById("app"));
 
 class Counter extends Rngular.component {
 
@@ -58,10 +67,12 @@ class Counter extends Rngular.component {
         const dom = document.getElementById("$this_num");
         dom.value = parseInt(dom.value) + num;
     }
+
+    console.log("PARENT-ID: $parent")
     `
 
     args = ["count"]
 }
 
 const counter = new Counter();
-counter.mount("#counter")
+counter.mount(document.getElementById("counter"))
