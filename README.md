@@ -52,9 +52,12 @@ WIP.
 
 ## CDN
 ```html
-<script src="https://raw.githubusercontent.com/EdamAme-x/Rngular/main/dist/Rngular.min.js">
+<script src="https://edamame-x.github.io/Rngular/dist/Rngular.min.js">
 </script>
 ```
+
+## Playground
+[https://codepen.io/EdamAme-x/pen/OJrQzWX](https://codepen.io/EdamAme-x/pen/OJrQzWX)
 
 ### Development
 `npm run dev` で src/Rngular.jsを自動的にファイル変更を監視し、minify
