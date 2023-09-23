@@ -1,7 +1,5 @@
 globalThis.Rngular = {
     component: class {
-        constructor() {
-        }
 
         html = ``;
 
@@ -9,17 +7,8 @@ globalThis.Rngular = {
 
         script = ``;
 
-        args = 0;
-
-        _createUuid() {
-            return 'rg_xxxxxx_xxxxxx'.replaceAll("x", function (a) {
-                let r = (new Date().getTime() + Math.random() * 16) % 16 | 0, v = a == 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            });
-        }
-
-        mount(dom) {
-            this.uuid = this._createUuid();
+        async mount(dom) {
+            this.uuid = Rngular._createUuid();
             this.dom = dom;
             this._document = this.dom;
 
@@ -43,8 +32,8 @@ globalThis.Rngular = {
                 const tagName = dom.parentNode.parentNode.tagName;
 
                 if (tagName == "BODY" || tagName == "HEAD") {
-                    console.error("The top-level component cannot retrieve the id of the parent element.")
-                    return "NOT-FOUND"
+                    console.error("The top-level cannnot it.");
+                    return false;
                 }
 
                 return tagName;
@@ -57,11 +46,17 @@ globalThis.Rngular = {
     },
     getChildId: (dom) => {
         return dom.children[0].tagName;
+    },
+    _createUuid() {
+        return 'rg_xxxxxx_xxxxxx_x'.replaceAll("x", function (a) {
+            let r = (new Date().getTime() + Math.random() * 16) % 16 | 0, v = a == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
     }
 }
 
 document.head.innerHTML += `
-<style RngularStyle>
+<style RgStyle>
 [rg-element] {
     display: contents;
 }
