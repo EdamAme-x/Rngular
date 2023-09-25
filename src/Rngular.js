@@ -54,7 +54,7 @@ globalThis.Rngular = {
     },
     _createUuid() {
         return 'rg_xxxxxx_xxxxxx_x'.replaceAll("x", function (a) {
-            let r = (new Date().getTime() + Math.random() * 16) % 16 | 0, v = a == 'x' ? r : (r & 0x3 | 0x8);
+            let r = (new Date().getTime() + Math.random() * 16) % 16 | 0, v = r;
             return v.toString(16);
         });
     },
