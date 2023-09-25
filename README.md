@@ -39,6 +39,11 @@ JSではquerySelectorにも利用できる。
 
 $parentは親のコンポーネントのUUIDに置き換わる。
 Rngular.getChildId(ここにDOM要素) で要素のUUIDも取得可能
+そして mount時に
+counter.mount("#counter", {
+    count: 1
+}) とすると
+Rngular.getProps("key名", "$this"); で取得可能。
 
 これにより双方データバインディングが可能。
 
