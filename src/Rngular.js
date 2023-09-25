@@ -8,7 +8,7 @@ globalThis.Rngular = {
         script = ``;
 
         async mount(dom, props = {}) {
-            this.uuid = Rngular._createUuid();
+            this.uuid = Rngular.createUuid();
             this.dom = dom;
             this._document = this.dom;
             const keys = Object.keys(props);
@@ -16,9 +16,9 @@ globalThis.Rngular = {
             for (let i = 0; i < keys.length; i++) {
                 globalThis[`rg_props_${this.uuid}_` + keys[i]] = props[keys[i]]
             }
-            
+
             this._document.innerHTML = `
-    <${this.uuid} id="${this.uuid}_html" class="${this.uuid}" rg-element>
+    <${this.uuid} id="${this.uuid}_html" class="${this.uuid}" rg-el>
         ${this._encode(this.html)}
         <style id="${this.uuid}_style">
             ${this._encode(this.style)}
@@ -34,25 +34,27 @@ globalThis.Rngular = {
 
             function getParentId() {
 
-                const tagName = dom.parentNode.parentNode.tagName;
+                const tagName = dom.parentNode.tagName;
 
                 if (tagName == "BODY" || tagName == "HEAD") {
                     console.error("The top-level cannnot it.");
                     return false;
                 }
 
-                return tagName;
+                return tagName.toLowerCase();
             }
 
             string = string.replaceAll("$this", this.uuid);
-            string = string.replaceAll("$parent", getParentId());
+            if (/\$parent/.test(string)) {
+                string = string.replaceAll("$parent", getParentId());
+            }
             return string;
         }
     },
     getChildId: (dom) => {
         return dom.children[0].tagName;
     },
-    _createUuid() {
+    createUuid() {
         return 'rg_xxxxxx_xxxxxx_x'.replaceAll("x", function (a) {
             let r = (new Date().getTime() + Math.random() * 16) % 16 | 0, v = r;
             return v.toString(16);
@@ -65,7 +67,7 @@ globalThis.Rngular = {
 
 document.head.innerHTML += `
 <style RgCSS>
-[rg-element] {
+[rg-el] {
     display: contents;
 }
 </style>
