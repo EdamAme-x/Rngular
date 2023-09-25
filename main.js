@@ -72,11 +72,12 @@ class Counter extends Rngular.component {
         dom.value = parseInt(dom.value) + num;
     }
 
+    document.querySelector("#$this_num").value = Rngular.getProps("count", "$this")
     console.log("PARENT-ID: $parent")
     `
-
-    args = ["count"]
 }
 
 const counter = new Counter();
-counter.mount(document.getElementById("counter"))
+counter.mount(document.getElementById("counter"), {
+    count: 1
+})

@@ -9,6 +9,7 @@ var watcher = chokidar.watch('./src/', {
 
 watcher.on('ready', function () {
     console.log("ready watching...");
+    exec("python -m http.server")
 
     watcher.on('change', function (path) {
         exec('minify ./src/Rngular.js', { encoding: 'utf-8' }, (err, stdout, stderr) => {

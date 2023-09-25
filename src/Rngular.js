@@ -7,11 +7,16 @@ globalThis.Rngular = {
 
         script = ``;
 
-        async mount(dom) {
+        async mount(dom, props = {}) {
             this.uuid = Rngular._createUuid();
             this.dom = dom;
             this._document = this.dom;
+            const keys = Object.keys(props);
 
+            for (let i = 0; i < keys.length; i++) {
+                globalThis[`rg_props_${this.uuid}_` + keys[i]] = props[keys[i]]
+            }
+            
             this._document.innerHTML = `
     <${this.uuid} id="${this.uuid}_html" class="${this.uuid}" rg-element>
         ${this._encode(this.html)}
@@ -52,11 +57,14 @@ globalThis.Rngular = {
             let r = (new Date().getTime() + Math.random() * 16) % 16 | 0, v = a == 'x' ? r : (r & 0x3 | 0x8);
             return v.toString(16);
         });
+    },
+    getProps(name, uuid) {
+        return globalThis[`rg_props_${uuid}_${name}`]
     }
 }
 
 document.head.innerHTML += `
-<style RgStyle>
+<style RgCSS>
 [rg-element] {
     display: contents;
 }
